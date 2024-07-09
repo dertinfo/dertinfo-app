@@ -1,0 +1,15 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "node",
+        "AZURE_APP_CONFIG": "",
+        "ENVIRONMENT": "Development",
+        "devonly_apiUrl": "URL_OF_THE_API",
+        "devonly_auth0ClientId": "AUTH0_IDP_DEVELOPMENT_TENANT_CLIENT_ID",
+        "devonly_auth0TenantDomain": "AUTH0_IDP_DEVELOPMENT_TENANT_DOMAIN",
+        "devonly_auth0Audience": "AUTH0_IDP_DEVELOPMENT_TENANT_AUDIENCE",
+        "devonly_auth0CallbackUrl": "CALLBACK_URL_FROM_AUTH0_IDP_LOCALHOST_OR_CODESPACE",
+        "devonly_appInsightsTelemetryKey": ""
+    }
+}
