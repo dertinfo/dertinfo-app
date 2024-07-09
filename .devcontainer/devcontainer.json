@@ -19,5 +19,5 @@
         ]
       }
     },
-    "postCreateCommand": "./setup-environment.sh"
+    "postCreateCommand": "./.devcontainer/setup-environment.sh"
   }
