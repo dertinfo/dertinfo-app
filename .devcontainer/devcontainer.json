@@ -19,5 +19,5 @@
         ]
       }
     },
-    "postCreateCommand": "npm install -g @azure/static-web-apps-cli azure-functions-core-tools@4 && echo '# Writing code upon codespace creation!'  >> codespace.md"
+    "postCreateCommand": "npm install -g @azure/static-web-apps-cli azure-functions-core-tools@4 @angular/cli && echo '# Writing code upon codespace creation!'  >> codespace.md"
   }
