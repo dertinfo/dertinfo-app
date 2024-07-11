@@ -31,11 +31,22 @@ This static web app consists of an ["Angular"](https://angular.dev/) client and 
 In order to get this project running you are going to need.
 
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/) installed.
-- The [Azure Static Web Apps CLI](https://azure.github.io/static-web-apps-cli/) installed 
 - The [NodeJs](https://nodejs.org/en/download/package-manager) version to support Angular
+- The [Azure Static Web Apps CLI](https://azure.github.io/static-web-apps-cli/) installed
 - The [Angular CLI](https://v17.angular.io/guide/setup-local) installed 
+- The [Typescript CLI](https://www.typescriptlang.org/docs/handbook/compiler-options.html) installed 
 
-> **Note:** If you need multiple versions of node installed to support multiple projects consider using [nvm](https://github.com/nvm-sh/nvm).
+
+> For local development the core packages are these nowver you can just install these items by running npm i at the locations of the package.json files.
+
+- npm install -g typescript 
+- npm install -g @azure/static-web-apps-cli 
+- npm install -g azure-functions-core-tools@4 
+- npm install -g @angular/cli@13
+
+
+> **Note:**  
+If you need multiple versions of node installed to support multiple projects consider using [nvm](https://github.com/nvm-sh/nvm).
 
 
 ## Running The Project
@@ -84,6 +95,8 @@ To note with this configutation:
 ### To run the client (Angular)
 In a command window at "/src/client"
 ```
+cd src
+cd client
 ng serve
 ```
 > The angular client should start on the standard angular port of http://localhost:4200
@@ -91,6 +104,9 @@ ng serve
 ### To run the function app
 In a command window at "/src/functions"
 ```
+cd src
+cd functions
+npm run build
 func start --port 7082
 ```
 > The function app should start on the (non standard) port 7082
