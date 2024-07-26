@@ -18,9 +18,27 @@ The producton version of this solution is visible at [https://app.dertinfo.co.uk
 
 ## Technology
 
+### Azure Static Web Apps 
+
 This project is a ["Azure Static Web App"](https://azure.microsoft.com/en-gb/products/app-service/static). 
 
 This static web app consists of an ["Angular"](https://angular.dev/) client and a typescript ["function app"](https://azure.microsoft.com/en-gb/products/functions) combined into a single deployable unit where the running application is configurable from settings stored in ["Azure App Configuration"](https://azure.microsoft.com/en-us/products/app-configuration) and ["Azure Key Vault"](https://azure.microsoft.com/en-us/products/key-vault). 
+
+### Docker 
+
+This workload contains a Dockerfile at the root of the project that will build an image such that on launching that image it will spin up both parts of the Static Web App. 
+
+You can then use this image independently to work with other parts of the application by running it in a docker container. 
+
+The image is available at DockerHub under the user dertinfo at [dertinfo/dertinfo-web](https://hub.docker.com/repository/docker/dertinfo/dertinfo-app)
+
+Pipelines will keep this image upto date with the main branch. 
+
+You can build the image locally to use in you local envionments by using the command  
+
+```
+docker build -t dertinfo/dertinfo-app .
+```
 
 ## Topology
 
