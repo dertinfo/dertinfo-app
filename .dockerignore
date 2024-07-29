@@ -7,7 +7,7 @@
 **/docker-compose.override.yml
 **/.dockerignore
 
-# Ignore build artifacts (as we build in the container)
+# Ignore local build artifacts (as we build in the container)
 **/dist/ 
 **/www/
 
@@ -21,5 +21,3 @@
 # Ignore version control files
 .git/
 .gitignore
-
-# Ignore function app specific files
