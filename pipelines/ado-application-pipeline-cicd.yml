@@ -4,8 +4,14 @@ trigger:
     include:
       - main
   paths:
-    include:
-      - dertinfo-pwa
+   include:
+    - src/*
+
+# Do not trigger the pipeline on pull requests
+pr:
+  branches:
+    exclude:
+      - '*'
 
 variables:
   buildConfiguration: 'Release'
@@ -24,8 +30,8 @@ stages:
               submodules: true
             - task: AzureStaticWebApp@0
               inputs:
-                app_location: '/dertinfo-pwa/client'
-                api_location: "/dertinfo-pwa/functions"
+                app_location: 'src/client'
+                app_build_command: "npm run ado-build-ui-test"
                 output_location: 'www'
               env:
                 azure_static_web_apps_api_token: $(staging_deployment_token)
@@ -43,8 +49,8 @@ stages:
               submodules: true
             - task: AzureStaticWebApp@0
               inputs:
-                app_location: '/dertinfo-pwa/client'
-                api_location: "/dertinfo-pwa/functions"
+                app_location: 'src/client'
+                app_build_command: "npm run ado-build-ui-prod"
                 output_location: 'www'
               env:
                 azure_static_web_apps_api_token: $(live_deployment_token)
