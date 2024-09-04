@@ -14,14 +14,26 @@
 #   do not particualrily reduce the size.
 ##################################################################
 
+
 # Base Stage
 FROM node:lts AS base
+
+# Take to IP of the API from the environment
+ARG apiUri=http://fish:44100/api
+# note - this is the default value for the API URI.
+
+RUN echo 'In the base stage our *apiUri* is:' $apiUri
 
 # Install global dependencies and clean npm cache in a single RUN command
 RUN npm install -g @azure/static-web-apps-cli
 
 # Builder Stage
 FROM base AS builder
+
+# Covert the variable to an ENV variable
+ENV API_URI=$apiUri
+
+RUN echo 'In the base stage our *API_URI* is:' $API_URI
 
 # Set the working directory
 WORKDIR /build
@@ -38,6 +50,12 @@ RUN cd /build/client && npm install --force
 
 # Copy the rest of the files
 COPY ./src /build
+
+# Update the Environment file with the API URI
+# repalce "apiUrl: 'http://localhost:44100/api'" with the value of the API_URI
+RUN echo $API_URI
+RUN sed -i "s|apiUrl: 'http://localhost:44100/api'|apiUrl: '$API_URI'|g" /build/client/src/environments/environment.ts
+RUN cat /build/client/src/environments/environment.ts
 
 # Build the Angular Client
 RUN cd /build/client && ng build

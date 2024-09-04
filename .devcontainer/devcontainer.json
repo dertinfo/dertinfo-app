@@ -11,7 +11,8 @@
         "extensions": [
           "ms-azuretools.vscode-azurestaticwebapps",
           "ms-azuretools.vscode-docker",
-          "ms-mssql.mssql"
+          "ms-mssql.mssql",
+          "github.copilot"
         ]
       },
       "codespaces": {
